@@ -104,7 +104,7 @@ contract WalletSimple {
    * returns address of newly created forwarder address
    */
   function createForwarder() public returns (address) {
-    return new Forwarder1();
+    return new Forwarder();
   }
 
   /**
@@ -181,7 +181,7 @@ contract WalletSimple {
     address tokenContractAddress
   ) public onlySigner {
       
-    Forwarder1 forwarder = Forwarder1(forwarderAddress);
+    Forwarder forwarder = Forwarder1(forwarderAddress);
     forwarder.flushTokens(tokenContractAddress);
   }
 
