@@ -22,7 +22,7 @@ contract ForwarderTarget {
   }
 
   function createForwarder() public {
-    new Forwarder();
+    new Forwarder1();
   }
 
   function() public payable {
