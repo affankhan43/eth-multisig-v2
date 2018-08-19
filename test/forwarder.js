@@ -2,7 +2,7 @@ require('should');
 
 const helpers = require('./helpers');
 
-const Forwarder = artifacts.require('./Forwarder.sol');
+const Forwarder = artifacts.require('./Forwarder1.sol');
 
 
 
