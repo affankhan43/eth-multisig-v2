@@ -7,6 +7,12 @@ contract Forwarder1 {
   // Address to which any funds sent to this contract will be forwarded
   address public parentAddress;
   event ForwarderDeposited(address from, uint value, bytes data);
+  
+  constructor() public {
+      parentAddress = msg.sender;
+      
+  }
+  
 
   /**
    * Create the contract, and sets the destination address to that of the creator
@@ -32,7 +38,7 @@ contract Forwarder1 {
     // throws on failure
     parentAddress.transfer(msg.value);
     // Fire off the deposited event if we can forward it
-    ForwarderDeposited(msg.sender, msg.value, msg.data);
+    emit ForwarderDeposited(msg.sender, msg.value, msg.data);
   }
 
   /**
@@ -41,8 +47,8 @@ contract Forwarder1 {
    */
   function flushTokens(address tokenContractAddress) public onlyParent {
     ERC20Interface instance = ERC20Interface(tokenContractAddress);
-    var forwarderAddress = address(this);
-    var forwarderBalance = instance.balanceOf(forwarderAddress);
+    address forwarderAddress = address(this);
+    uint forwarderBalance = instance.balanceOf(forwarderAddress);
     if (forwarderBalance == 0) {
       return;
     }
@@ -57,6 +63,7 @@ contract Forwarder1 {
    */
   function flush() public {
     // throws on failure
-    parentAddress.transfer(this.balance);
+    
+    parentAddress.transfer(parentAddress.balance);
   }
 }
