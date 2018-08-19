@@ -59,7 +59,7 @@ contract FixedSupplyToken is ERC20Interface {
   }
 
   // Constructor
-  function FixedSupplyToken() public {
+  function FixedSupplyToken1() public {
     owner = msg.sender;
     balances[owner] = _totalSupply;
   }

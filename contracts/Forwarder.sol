@@ -3,7 +3,7 @@ import "./ERC20Interface.sol";
 /**
  * Contract that will forward any incoming Ether to the creator of the contract
  */
-contract Forwarder {
+contract Forwarder1 {
   // Address to which any funds sent to this contract will be forwarded
   address public parentAddress;
   event ForwarderDeposited(address from, uint value, bytes data);
