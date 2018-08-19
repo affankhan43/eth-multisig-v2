@@ -2,11 +2,11 @@ require('should');
 
 const helpers = require('./helpers');
 
-const Forwarder = artifacts.require('./Forwarder1.sol');
+const Forwarder = artifacts.require('./Forwarder.sol');
 
 
 
-contract('Forwarder1', function(accounts) {
+contract('Forwarder', function(accounts) {
   it('Basic forwarding test', async function () {
     const forwardContract = await Forwarder.new([], { from: accounts[0] });
     const account0StartEther = web3.fromWei(web3.eth.getBalance(accounts[0]), 'ether');
