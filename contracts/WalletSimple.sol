@@ -181,7 +181,7 @@ contract WalletSimple {
     address tokenContractAddress
   ) public onlySigner {
       
-    Forwarder forwarder = Forwarder1(forwarderAddress);
+    Forwarder forwarder = Forwarder(forwarderAddress);
     forwarder.flushTokens(tokenContractAddress);
   }
 
